@@ -1,15 +1,8 @@
 # Project-specific
 UnusedImages
+UnusedScripts
 
 .idea
-ConversionTest.py
-FinalProcess.py
-operations.py
-Processing.py
-TestComposition.py
-Testing2.py
-TestingInverse.py
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
