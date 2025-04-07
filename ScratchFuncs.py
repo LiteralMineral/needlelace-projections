@@ -108,7 +108,7 @@ def apply_combo():
 # filename = "projection_testImage2.png"
 # filename = "OdysseyScenesNeedleLaceDesign_Prototype.png"
 # filename = "odyssey_motifs_draft.png"
-filename = "BestiaryLacePattern.png"
+filename = "TestImages/BestiaryLacePattern.png"
 # filename = "BestiaryLacePatternNoBackground.png"
 # filename = "heartshape.jpg"
 # filename = "Npac_Compare2.png"
