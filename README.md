@@ -25,4 +25,5 @@ For the map projection, I chose an interrupted sinusoidal projection, as it is c
 
 
 ## Next Steps
-This is quite slow. This is fine, since I just need it to process the image once, but I'd like to write the projection functions in c or use cython to speed it up. 
+- This is quite slow. This is fine, since I just need it to process the image once, but I'd like to write the projection functions in c or use cython to speed it up.
+- I could probably use a different map projection to minimize distortion more. Unfortunately, I am not familiar with common map projections.
