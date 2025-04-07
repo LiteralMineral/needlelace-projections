@@ -1,6 +1,5 @@
 # Project-specific
-*.png
-*.jpg
+UnusedImages
 
 .idea
 ConversionTest.py
