@@ -23,3 +23,6 @@ For the map projection, I chose an interrupted sinusoidal projection, as it is c
 - https://neacsu.net/docs/geodesy/snyder/7-pseudocylindrical/sect_30/
   - To understand the interrupted sinusoidal projection and its inverse 
 
+
+## Next Steps
+This is quite slow. This is fine, since I just need it to process the image once, but I'd like to write the projection functions in c or use cython to speed it up. 
