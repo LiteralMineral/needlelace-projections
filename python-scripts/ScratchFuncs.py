@@ -1,12 +1,11 @@
-import numpy as np
 from PIL import Image
-# import matplotlib
-from matplotlib import pyplot as plt
-from Processing import *
+import numpy as np
+
+import matplotlib
+
 
 import Projections
 from Projections import *
-import scipy as sc
 from scipy import ndimage
 
 
@@ -30,7 +29,7 @@ def stereographic_transform(output_coordinates, maximum_dim, unit_ratio):
 def apply_stereographic_func(image, unit_ratio=1.0):
     max_dim = max(image.shape[0], image.shape[1])
     print(image.shape)
-    return ndimage.geometric_transform(image_array, stereographic_transform,
+    return ndimage.geometric_transform(image, stereographic_transform,
                                        extra_arguments=(max_dim, unit_ratio),
                                        output_shape=(image.shape[0] // 2,
                                                      image.shape[1],
@@ -104,26 +103,18 @@ def apply_combo():
     pass
 
 
-# filename = "projection_testImage.png"
-# filename = "projection_testImage2.png"
-# filename = "OdysseyScenesNeedleLaceDesign_Prototype.png"
-# filename = "odyssey_motifs_draft.png"
-filename = "TestImages/BestiaryLacePattern.png"
-# filename = "BestiaryLacePatternNoBackground.png"
-# filename = "heartshape.jpg"
-# filename = "Npac_Compare2.png"
-# filename = "shadow_puppet.png"
-# filename = "square_grid.png"
-# filename = "square_grid_2.png"
+
+directory = "../TestImages/"
+filename = "BestiaryLacePattern.png"
 
 # pulling out the coordinate data, via method in:
 # https://stackoverflow.com/questions/49649215/pandas-image-to-dataframe
-input_image = Image.open(filename, mode='r').convert("RGBA")
+input_image = Image.open(directory + filename, mode='r').convert("RGBA")
 image_array = np.reshape(np.asarray(input_image), input_image.size + (4,))
 # print(image_array)
 
 
-unit = 2
+unit_size = 2
 scale_factor = 4
 num_partitions = 8
 
@@ -138,8 +129,8 @@ new_size = int(scale_factor * image_array.shape[0]), int(scale_factor * image_ar
 # plt.show()
 
 
-# output = apply_stereographic_func(image_array, unit)
-# output = apply_stereographic_func(output, unit)
+# output = apply_stereographic_func(image_array, unit_size)
+# output = apply_stereographic_func(output, unit_size)
 
 # plt.imshow(output)
 # plt.show()
@@ -154,19 +145,18 @@ m_fin_dim = int(m_orig_dim * 1.5)
 output = ndimage.geometric_transform(image_array, combo_transform,
                                      extra_arguments=(m_orig_dim,
                                                       m_fin_dim,
-                                                      num_partitions, # num_partitions
-                                                      unit
+                                                      num_partitions,  # num_partitions
+                                                      unit_size
                                                       ),
                                      cval = 0,
                                      output_shape=(m_fin_dim//2, m_fin_dim, 4)
-
                                      )
 
 
 output_image = Image.fromarray(output)
 
 # output_image.save('perfected_algo_'+filename, format='png')
-output_image.save('combo_algo_'+filename, format='png')
+output_image.save(directory + 'combo_algo_'+filename, format='png')
 
 # plt.imshow(output)
 # plt.show()
